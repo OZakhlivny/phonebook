@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+  <bean id="rmiRemoteExporterProvider" class="gk.spring_ext.remoting.exporter.provider.RmiRemoteExporterProvider">
+    <property name="registry">
+      <bean class="org.springframework.remoting.rmi.RmiRegistryFactoryBean">
+        <property name="port" value="${rmi.registry.port:1099}" />
+      </bean>
+    </property>
+  </bean>
+
+  <!-- export the remote bean -->
+  <bean class="gk.spring_ext.remoting.exporter.RemoteBeanExporter">
+    <property name="remoteExporterProvider" ref="rmiRemoteExporterProvider" />
+    <property name="service" ref="phonebookService" />
+    <property name="serviceInterface" value="gk.phonebook.facade.service.IPhonebookService" />
+  </bean>
+
+</beans>

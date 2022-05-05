@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:component="http://www.gk-software.com/schema/spring_ext/components"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.gk-software.com/schema/spring_ext/components http://www.gk-software.com/schema/spring_ext/components/components-2.5.xsd">
+
+  <bean id="componentContainer" class="gk.spring_ext.component.impl.ComponentContainerImpl">
+
+    <!-- components to start -->
+    <property name="descriptor">
+      <component:container-descriptor>
+        <component:instance name="db">
+          <component:descriptor coordinates-ref="com.gk-software.ee-platform:phonebook:db" />
+        </component:instance>
+        <component:instance name="repository">
+          <component:descriptor coordinates-ref="com.gk-software.ee-platform:phonebook:repository" />
+          <component:config>
+            <component:property key="repository.import" value="false" />
+          </component:config>
+        </component:instance>
+      </component:container-descriptor>
+    </property>
+
+    <!-- services to export to root context to be accessible in JUnit test -->
+    <property name="interfaceDescriptor">
+      <component:container-interface>
+        <component:export-bean name="dataSource" interface="javax.sql.DataSource" />
+        <component:export-bean name="transactionManager" interface="org.springframework.transaction.PlatformTransactionManager" />
+        <component:export-bean name="phonebookRepository" interface="gk.phonebook.repository.IPhonebookRepository" />
+      </component:container-interface>
+    </property>
+
+    <!-- dependencies -->
+    <property name="configProvider">
+      <bean class="gk.spring_ext.component.config_provider.impl.StaticClasspathConfigProvider">
+        <property name="resourcePrefix" value="gk/phonebook/repository/config/" />
+      </bean>
+    </property>
+
+  </bean>
+
+</beans>

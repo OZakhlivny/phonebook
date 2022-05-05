@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns="http://www.es.gk-software.com/gkretail/std_case/configuration/1.0.0"
+               xsi:schemaLocation="http://www.es.gk-software.com/gkretail/std_case/configuration/1.0.0 http://www.es.gk-software.com/gkretail/std_case/configuration_1_0_0.xsd">
+  <common>
+    <parameters>
+      <parameter name="gen_com_repository_file">src/main/resources/gk/phonebook/repository/model/phonebook-model.xml</parameter>
+      <parameter name="gen_sql_file_prefix">gk</parameter>
+      <parameter name="gen_sql_public_grant_ok">F</parameter>
+      <parameter name="gen_sql_domain">F</parameter>
+      <parameter name="gen_sql_primary_key_index_ok">F</parameter>
+    </parameters>
+
+    <objects>
+      <object>
+        <parameter name="modul_name">MODEL</parameter>
+        <parameter name="object_name">*</parameter>
+        <parameter name="object_type">SA_TABLE</parameter>
+        <parameter name="report_type">SQL_STANDARD</parameter>
+      </object>
+    </objects>
+  </common>
+
+  <sections>
+    <section name="server_h2">
+      <parameters>
+        <parameter name="gen_sql_package">gk/phonebook/repository/sql/h2</parameter>
+        <parameter name="gen_sql_syntax">H2</parameter>
+      </parameters>
+    </section>
+  </sections>
+</configuration>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <display-name>Phonebook tutorial application</display-name>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+      classpath:/META-INF/com.gk-software.ee-platform/phonebook/component-container-beans.xml
+      classpath:/META-INF/com.gk-software.ee-platform/phonebook/component-container-descriptor.xml
+    </param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>rest-handler</servlet-name>
+    <servlet-class>gk.spring_ext.web.servlet.ComponentAwareHttpRequestHandlerServlet</servlet-class>
+    <init-param>
+      <param-name>componentPath</param-name>
+      <param-value>component-container[facade]</param-value>
+    </init-param>
+    <init-param>
+      <param-name>volatile</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>rest-handler</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+  </web-app>

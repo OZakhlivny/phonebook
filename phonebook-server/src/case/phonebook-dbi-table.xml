@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns="http://www.es.gk-software.com/gkretail/std_case/configuration/1.0.0"
+               xsi:schemaLocation="http://www.es.gk-software.com/gkretail/std_case/configuration/1.0.0 http://www.es.gk-software.com/gkretail/std_case/configuration_1_0_0.xsd">
+
+  <common>
+    <parameters>
+      <parameter name="gen_com_repository_file">src/main/resources/gk/phonebook/repository/model/phonebook-model.xml</parameter>
+      <parameter name="gen_com_output_encoding">utf-8</parameter>
+      <parameter name="gen_java_dbi_ok">T</parameter>
+      <parameter name="gen_java_db_ok">F</parameter>
+      <parameter name="gen_java_dbi_framework_package">gk.dbi</parameter>
+      <parameter name="gen_java_dbi_parent_class">gk.dbi.DbiTable</parameter>
+      <parameter name="gen_java_dbirow_parent_class">gk.dbi.DbiRow</parameter>
+      <parameter name="gen_java_dbi_package">gk.phonebook.repository.dbi</parameter>
+      <parameter name="gen_java_dbirow_package">gk.phonebook.repository.dbi</parameter>
+      <parameter name="gen_java_db_package" />
+      <parameter name="gen_java_dbrow_package" />
+      <parameter name="gen_java_unicode_chars_compatibility">true</parameter>
+      <parameter name="gen_java_dbi_column_class">gk.dbi.DbiColumn</parameter>
+      <parameter name="gen_java_generic_standalone_dbi_ok">T</parameter>
+      <parameter name="gen_java_boolean_false_value">N</parameter>
+      <parameter name="gen_java_boolean_true_value">J</parameter>
+      <parameter name="gen_java_dbirow_isnull_methods_ok">T</parameter>
+      <parameter name="gen_java_dbirow_setget_object_methods_ok">T</parameter>
+      <parameter name="gen_java_dbirow_column_index_class">gk.dbi.DbiColumnIndex</parameter>
+    </parameters>
+  </common>
+
+  <sections>
+    <section name="server_dbi">
+      <objects>
+        <object>
+          <parameter name="modul_name">MODEL</parameter>
+          <parameter name="object_name">*</parameter>
+          <parameter name="object_type">SA_TABLE</parameter>
+          <parameter name="report_type">JAVA_DBI</parameter>
+        </object>
+      </objects>
+
+    </section>
+
+  </sections>
+
+</configuration>

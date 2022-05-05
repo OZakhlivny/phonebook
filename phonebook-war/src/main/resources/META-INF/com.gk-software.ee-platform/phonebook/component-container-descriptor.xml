@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:component="http://www.gk-software.com/schema/spring_ext/components"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.gk-software.com/schema/spring_ext/components http://www.gk-software.com/schema/spring_ext/components/components-2.5.xsd">
+
+  <component:container-descriptor id="container-descriptor">
+
+    <component:container-config>
+      <component:property-file name="system"/>
+    </component:container-config>
+
+    <component:instance name="db">
+      <component:descriptor coordinates-ref="com.gk-software.ee-platform:phonebook:db" />
+    </component:instance>
+
+    <component:instance name="repository">
+      <component:descriptor coordinates-ref="com.gk-software.ee-platform:phonebook:repository" />
+    </component:instance>
+
+	<component:instance name="facade">
+       <component:descriptor coordinates-ref="com.gk-software.ee-platform:phonebook:facade" />
+    </component:instance>
+
+  </component:container-descriptor>
+
+</beans>

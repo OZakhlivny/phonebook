@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<class>
+    <entry>
+        <id>1</id>
+        <name>King</name>
+        <surname>Diamond</surname>
+        <phonenumber>+420 777666555</phonenumber>
+    </entry>
+    <entry>
+        <id>2</id>
+        <name>Ozzy</name>
+        <surname>Osbourne</surname>
+        <phonenumber>+420 111222333</phonenumber>
+    </entry>
+    <entry>
+        <id>3</id>
+        <name>Zakk</name>
+        <surname>Wylde</surname>
+        <phonenumber>+420 000111000</phonenumber>
+    </entry>
+
+</class>

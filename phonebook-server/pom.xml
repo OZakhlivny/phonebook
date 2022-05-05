@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+	<parent>
+  		<groupId>com.gksoftware.ozakhlivny</groupId>
+  		<artifactId>phonebook-parent</artifactId>
+ 		<version>1.0.0-SNAPSHOT</version>
+ 		<relativePath>../pom.xml</relativePath>
+  	</parent>
+
+  <artifactId>phonebook-server</artifactId>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+ 	<ee-platform.version>2.24.0</ee-platform.version>
+  	<version.org.springframework>[3.0.0.RELEASE,3.1.3.RELEASE]</version.org.springframework>
+  	<version.log4j>[1.2.15,1.2.17]</version.log4j>
+  	<version.junit>4.7</version.junit>
+  </properties>
+
+<dependencies>
+   <dependency>
+       <groupId>com.gksoftware.ozakhlivny</groupId>
+       <artifactId>phonebook-api</artifactId>
+       <version>1.0.0-SNAPSHOT</version>
+   </dependency>
+
+  <dependency>
+    <groupId>com.gk-software.ee-platform</groupId>
+    <artifactId>ee-log4j-ext</artifactId>
+    <version>${ee-platform.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>com.gk-software.ee-platform</groupId>
+    <artifactId>ee-dbi-spring</artifactId>
+    <version>${ee-platform.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>com.gk-software.ee-platform</groupId>
+    <artifactId>ee-spring-ext-remoting</artifactId>
+    <version>${ee-platform.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>com.gk-software.ee-platform</groupId>
+    <artifactId>ee-spring-ext-web</artifactId>
+    <version>${ee-platform.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>${version.org.springframework}</version>
+    <scope>runtime</scope>
+  </dependency>
+  <dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <version>1.2.132</version>
+    <scope>runtime</scope>
+  </dependency>
+
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>${version.junit}</version>
+    <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>${version.org.springframework}</version>
+    <scope>test</scope>
+  </dependency>
+</dependencies>
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>com.gk-software.maven.plugins</groupId>
+      <artifactId>maven-case-plugin</artifactId>
+      <version>12.7.21</version>
+      <executions>
+        <execution>
+          <id>sql</id>
+          <goals>
+            <goal>generate</goal>
+          </goals>
+          <configuration>
+            <configFile>${basedir}/src/case/phonebook-sql-table.xml</configFile>
+            <output>${project.build.directory}/generated-sources/sql</output>
+            <addToSources>resource</addToSources>
+            <staleFile>${project.build.directory}/generated-sources/case-sql.staleFlag</staleFile>
+          </configuration>
+        </execution>
+
+        <execution>
+		  <id>java</id>
+		  <goals>
+		    <goal>generate</goal>
+		  </goals>
+		  <configuration>
+		    <configFile>${basedir}/src/case/phonebook-dbi-table.xml</configFile>
+		    <output>${project.build.directory}/generated-sources/dbi</output>
+		    <staleFile>${project.build.directory}/generated-sources/case-dbi.staleFlag</staleFile>
+		    <sections>
+		      <section>server_dbi</section>
+		    </sections>
+		  </configuration>
+		</execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
+
+</project>

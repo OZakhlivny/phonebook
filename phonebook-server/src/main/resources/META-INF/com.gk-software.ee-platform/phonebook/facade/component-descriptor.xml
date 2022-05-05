@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:component="http://www.gk-software.com/schema/spring_ext/components"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.gk-software.com/schema/spring_ext/components http://www.gk-software.com/schema/spring_ext/components/components-2.5.xsd"
+>
+
+  <component:descriptor coordinates="com.gk-software.ee-platform:phonebook:facade">
+    <component:content>
+      <component:xml-resource location="facade-service.xml" />
+      <component:xml-resource location="facade-remoting.xml" if="${facade.types:remoting,rest}" contains-token="remoting"/>
+      <component:xml-resource location="facade-rest.xml" if="${facade.types:remoting,rest}" contains-token="rest"/>
+    </component:content>
+    <component:interface>
+      <component:import-bean name="transactionManager" interface="org.springframework.transaction.PlatformTransactionManager" />
+      <component:import-bean name="phonebookRepository" interface="gk.phonebook.repository.IPhonebookRepository" />
+    </component:interface>
+  </component:descriptor>
+
+</beans>

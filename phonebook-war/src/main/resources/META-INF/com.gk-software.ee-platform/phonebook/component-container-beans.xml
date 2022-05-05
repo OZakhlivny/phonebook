@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <!-- config provider for accessing of configuration files -->
+  <bean id="configProvider" class="gk.spring_ext.component.config_provider.impl.StaticClasspathConfigProvider">
+    <property name="resourcePrefix" value="config/" />
+  </bean>
+
+  <!-- component container bean definition -->
+  <bean id="component-container" class="gk.spring_ext.component.impl.WebComponentContainerImpl">
+    <property name="configProvider" ref="configProvider"/>
+    <property name="descriptor" ref="container-descriptor"/>
+  </bean>
+
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataType
+  	schemaVersion="1.0.2" dbChanges="1.0.0" version="1.0.0" project="EE" name="PHONEBOOK"
+  	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns="http://www.es.gk-software.com/gkretail/std_case/xml/dataType">
+
+	 <virtualDomain basicType="BINARY" physicalName="BINARY" logicalName="BINARY"/>
+	 <virtualDomain basicType="BOOLEAN" physicalName="BOOLEAN" logicalName="BOOLEAN"/>
+	 <virtualDomain basicType="CHAR" physicalName="CHAR" logicalName="CHAR"/>
+	 <virtualDomain basicType="DATE" physicalName="DATE" logicalName="DATE"/>
+	 <virtualDomain basicType="INTEGER" physicalName="INTEGER" logicalName="INTEGER"/>
+	 <virtualDomain basicType="LONG" physicalName="LONG" logicalName="LONG"/>
+	 <virtualDomain basicType="NCHAR" physicalName="NCHAR" logicalName="NCHAR"/>
+	 <virtualDomain basicType="NUMERIC" physicalName="NUMERIC" logicalName="NUMERIC"/>
+	 <virtualDomain basicType="NVARCHAR" physicalName="NVARCHAR" logicalName="NVARCHAR"/>
+	 <virtualDomain basicType="SMALLINT" physicalName="SMALLINT" logicalName="SMALLINT"/>
+	 <virtualDomain basicType="TEXT" physicalName="TEXT" logicalName="TEXT"/>
+	 <virtualDomain basicType="TIME" physicalName="TIME" logicalName="TIME"/>
+	 <virtualDomain basicType="TIMESTAMP" physicalName="TIMESTAMP" logicalName="TIMESTAMP"/>
+	 <virtualDomain basicType="VARCHAR" physicalName="VARCHAR" logicalName="VARCHAR"/>
+
+	 <domain scale="0" size="9" basicType="INTEGER" physicalName="T_KEY" logicalName="Key"/>
+	 <domain scale="0" size="128" basicType="VARCHAR" physicalName="T_NAME" logicalName="Name"/>
+	 <domain scale="0" size="128" basicType="VARCHAR" physicalName="T_SURNAME" logicalName="Surname"/>
+	 <domain scale="0" size="32" basicType="VARCHAR" physicalName="T_PHONENUMBER" logicalName="Phonenumber"/>
+
+</dataType>

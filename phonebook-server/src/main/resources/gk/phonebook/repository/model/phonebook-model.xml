@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model
+	schemaVersion="1.0.2" dbChanges="1.0.0" version="1.0.0" project="EE" name="PHONEBOOK"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:ns2="http://www.es.gk-software.com/gkretail/std_case/xml/dataType"
+	xmlns="http://www.es.gk-software.com/gkretail/std_case/xml/entity">
+
+ 	<xi:include href="phonebook-domain.xml"/>
+
+  <entity physicalName="PHONEBOOK" logicalName="Phonebook">
+    <attributes>
+      <attribute notNull="true" physicalName="KEY" logicalName="Key">
+        <domain ref="Key"/>
+      </attribute>
+      <attribute notNull="false" physicalName="NAME" logicalName="Name">
+        <domain ref="Name"/>
+      </attribute>
+      <attribute notNull="false" physicalName="SURNAME" logicalName="Surname">
+        <domain ref="Surname"/>
+      </attribute>
+      <attribute notNull="true" physicalName="PHONENUMBER" logicalName="Phonenumber">
+        <domain ref="Phonenumber"/>
+      </attribute>
+    </attributes>
+
+    <accessPath>
+      <primaryKey physicalName="PHONEBOOK_KEY_PK" logicalName="PHONEBOOK_KEY_PK">
+        <attribute ref="Key"/>
+      </primaryKey>
+    </accessPath>
+  </entity>
+</model>
