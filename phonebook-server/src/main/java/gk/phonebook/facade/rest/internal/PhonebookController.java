@@ -1,4 +1,4 @@
-package gk.phonebook.facade.service.rest.internal;
+package gk.phonebook.facade.rest.internal;
 
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ public class PhonebookController {
 	private IPhonebookService phonebookService;
 
 	@Required
-	public void setPropertiesService(IPhonebookService phonebookService) {
+	public void setPhonebookService(IPhonebookService phonebookService) {
 		this.phonebookService = phonebookService;
 	}
 
